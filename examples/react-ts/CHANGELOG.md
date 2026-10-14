@@ -1,5 +1,17 @@
 # react-ts
 
+## 0.2.0
+
+### Minor Changes
+
+- [`628bfea`](https://github.com/farcasterorg/miniapps/commit/628bfea158f45986199b47345e34a68e3e086137) Thanks [@CassOnMars](https://github.com/CassOnMars)! - org rename, protocol auth
+
+### Patch Changes
+
+- Updated dependencies [[`628bfea`](https://github.com/farcasterorg/miniapps/commit/628bfea158f45986199b47345e34a68e3e086137)]:
+  - @farcasterorg/frame-wagmi-connector@3.0.0
+  - @farcasterorg/frame-sdk@0.3.0
+
 ## 0.1.15
 
 ### Patch Changes

@@ -1,5 +1,11 @@
 # @farcaster/create-mini-app
 
+## 0.2.0
+
+### Minor Changes
+
+- [`628bfea`](https://github.com/farcasterorg/miniapps/commit/628bfea158f45986199b47345e34a68e3e086137) Thanks [@CassOnMars](https://github.com/CassOnMars)! - org rename, protocol auth
+
 ## 0.1.2
 
 ### Patch Changes

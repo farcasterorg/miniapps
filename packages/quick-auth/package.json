@@ -1,6 +1,6 @@
 {
   "name": "@farcasterorg/quick-auth",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Quick Auth without an auth server: wallet-signed tokens verified against Farcaster protocol state.",
   "license": "MIT",
   "repository": {

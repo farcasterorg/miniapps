@@ -1,6 +1,6 @@
 {
   "name": "@farcasterorg/create-mini-app",
-  "version": "0.1.2",
+  "version": "0.2.0",
   "description": "Create Farcaster Mini Apps with one command",
   "main": "index.js",
   "type": "module",

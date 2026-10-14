@@ -1,5 +1,31 @@
 # @farcaster/frame-host
 
+## 0.4.0
+
+### Minor Changes
+
+- [`5048780`](https://github.com/farcasterorg/miniapps/commit/5048780b5d0740a5f6307e34c5006783de5d7062) Thanks [@veganbeef](https://github.com/veganbeef)! - Keep `@solana/web3.js` out of the default `@farcasterorg/miniapp-host` module graph so hosts that do not support Solana install, import, bundle, and type-check without it (and without pulling in the Solana v1 RPC stack / GHSA-w5hq-g745-h8pq).
+
+  `@solana/web3.js` is now an optional peer dependency. The `@solana/web3.js`-backed request wrapping used by `wrapHandlers`/`exposeToEndpoint` has moved to an opt-in `@farcasterorg/miniapp-host/solana` entrypoint.
+
+  If your host exposes a Solana provider (sets `solanaProviderRequest` on its `MiniAppHost`), you must now:
+
+  1. Install `@solana/web3.js`.
+  2. Add `import '@farcasterorg/miniapp-host/solana'` once in your host entry.
+
+  ```ts
+  import "@farcasterorg/miniapp-host/solana"; // enables wrapping of solanaProviderRequest
+  ```
+
+  A host that provides `solanaProviderRequest` without importing the subpath will throw a descriptive error the first time a mini app makes a Solana request. Hosts that do not support Solana require no changes.
+
+- [`628bfea`](https://github.com/farcasterorg/miniapps/commit/628bfea158f45986199b47345e34a68e3e086137) Thanks [@CassOnMars](https://github.com/CassOnMars)! - org rename, protocol auth
+
+### Patch Changes
+
+- Updated dependencies [[`5048780`](https://github.com/farcasterorg/miniapps/commit/5048780b5d0740a5f6307e34c5006783de5d7062), [`628bfea`](https://github.com/farcasterorg/miniapps/commit/628bfea158f45986199b47345e34a68e3e086137)]:
+  - @farcasterorg/miniapp-core@0.7.0
+
 ## 0.3.0
 
 ### Minor Changes
