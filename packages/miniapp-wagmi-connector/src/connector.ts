@@ -1,4 +1,4 @@
-import MiniAppSDK from '@farcaster/miniapp-sdk'
+import MiniAppSDK from '@farcasterorg/miniapp-sdk'
 import {
   ChainNotConfiguredError,
   type Connector,

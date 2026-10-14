@@ -8,12 +8,11 @@
     "preview": "vocs preview"
   },
   "devDependencies": {
-    "@farcaster/miniapp-core": "workspace:*",
-    "zod": "^4.0.0",
-    "@farcaster/miniapp-node": "workspace:*",
-    "@farcaster/miniapp-sdk": "workspace:*",
-    "@farcaster/miniapp-wagmi-connector": "workspace:*",
     "@farcaster/quick-auth": "^0.0.4",
+    "@farcasterorg/miniapp-core": "workspace:*",
+    "@farcasterorg/miniapp-node": "workspace:*",
+    "@farcasterorg/miniapp-sdk": "workspace:*",
+    "@farcasterorg/miniapp-wagmi-connector": "workspace:*",
     "@types/lodash.isequal": "^4.5.8",
     "@types/react": "latest",
     "lodash.isequal": "^4.5.0",
@@ -21,6 +20,7 @@
     "react-dom": "latest",
     "typescript": "latest",
     "vocs": "latest",
-    "wagmi": "^2.14.12"
+    "wagmi": "^2.14.12",
+    "zod": "^4.0.0"
   }
 }

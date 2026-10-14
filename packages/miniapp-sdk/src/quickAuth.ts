@@ -1,7 +1,7 @@
-import { SignIn } from '@farcaster/miniapp-core'
 import type { JWTPayload } from '@farcaster/quick-auth'
 import { decodeJwt } from '@farcaster/quick-auth/decodeJwt'
 import { createLightClient } from '@farcaster/quick-auth/light'
+import { SignIn } from '@farcasterorg/miniapp-core'
 import * as Siwe from 'ox/Siwe'
 
 import { miniAppHost } from './miniAppHost.js'

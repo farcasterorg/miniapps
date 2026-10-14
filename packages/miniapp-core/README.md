@@ -1,11 +1,11 @@
-# @farcaster/miniapp-core
+# @farcasterorg/miniapp-core
 
 Build onchain social apps
 
 ## Installation
 
 ```bash
-pnpm add @farcaster/miniapp-core
+pnpm add @farcasterorg/miniapp-core
 ```
 
 ## Solana support
@@ -16,7 +16,7 @@ stack.
 
 If you use the Solana helpers (`SolanaConnection`, `wrapSolanaProviderRequest`,
 `unwrapSolanaProviderRequest`), install `@solana/web3.js` yourself and import
-them from the `@farcaster/miniapp-core/solana` subpath:
+them from the `@farcasterorg/miniapp-core/solana` subpath:
 
 ```bash
 pnpm add @solana/web3.js
@@ -27,7 +27,7 @@ import {
   SolanaConnection,
   wrapSolanaProviderRequest,
   unwrapSolanaProviderRequest,
-} from '@farcaster/miniapp-core/solana'
+} from '@farcasterorg/miniapp-core/solana'
 ```
 
 Solana types (`SolanaWalletProvider`, `SolanaRequestFn`, `SolanaWireRequestFn`,

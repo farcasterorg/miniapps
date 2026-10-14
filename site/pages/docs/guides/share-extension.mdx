@@ -70,7 +70,7 @@ These parameters are available immediately, even during server-side rendering, a
 Once your Mini App initializes, the SDK provides enriched cast data through the location context:
 
 ```typescript
-import sdk from '@farcaster/miniapp-sdk';
+import sdk from '@farcasterorg/miniapp-sdk';
 
 if (sdk.context.location.type === 'cast_share') {
   const cast = sdk.context.location.cast;
@@ -114,7 +114,7 @@ Here's a complete example showing how to handle shared casts in your Mini App:
 
 ```typescript
 import { useEffect, useState } from 'react';
-import sdk from '@farcaster/miniapp-sdk';
+import sdk from '@farcasterorg/miniapp-sdk';
 
 function App() {
   const [sharedCast, setSharedCast] = useState(null);

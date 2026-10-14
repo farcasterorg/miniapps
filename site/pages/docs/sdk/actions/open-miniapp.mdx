@@ -19,7 +19,7 @@ const options = {
 };
 
 //---cut---
-import { sdk } from '@farcaster/miniapp-sdk'
+import { sdk } from '@farcasterorg/miniapp-sdk'
 
 // Open a Mini App using an embed URL
 await sdk.actions.openMiniApp({
@@ -61,7 +61,7 @@ referral example below (`searchParams.get('ref')`) work.
 Always await the `openMiniApp` call and handle potential errors:
 
 ```ts
-import { sdk } from '@farcaster/miniapp-sdk'
+import { sdk } from '@farcasterorg/miniapp-sdk'
 
 try {
   await sdk.actions.openMiniApp({

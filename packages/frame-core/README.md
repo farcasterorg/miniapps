@@ -1,11 +1,11 @@
-# @farcaster/frame-core
+# @farcasterorg/frame-core
 
 Build onchain social apps
 
 ## Installation
 
 ```bash
-pnpm add @farcaster/frame-core
+pnpm add @farcasterorg/frame-core
 ```
 
 ## Documentation

@@ -1,15 +1,15 @@
 // Deprecation warning
 if (typeof console !== 'undefined' && console.warn) {
   console.warn(
-    '@farcaster/frame-host is deprecated. Please use @farcaster/miniapp-host instead.',
+    '@farcasterorg/frame-host is deprecated. Please use @farcasterorg/miniapp-host instead.',
   )
 }
 
 // Re-export everything from miniapp-host
-export * from '@farcaster/miniapp-host'
+export * from '@farcasterorg/miniapp-host'
 
 // Backward compatibility - re-export exposeToIframe with old parameter name
-import { exposeToIframe as _exposeToIframe } from '@farcaster/miniapp-host'
+import { exposeToIframe as _exposeToIframe } from '@farcasterorg/miniapp-host'
 
 let exposeToIframeWarningShown = false
 export function exposeToIframe({

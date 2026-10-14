@@ -15,8 +15,8 @@
     "vite": "^6.3.6"
   },
   "dependencies": {
-    "@farcaster/miniapp-host": "workspace:*",
-    "@farcaster/miniapp-sdk": "workspace:*",
+    "@farcasterorg/miniapp-host": "workspace:*",
+    "@farcasterorg/miniapp-sdk": "workspace:*",
     "mipd": "^0.0.7"
   }
 }

@@ -1,15 +1,15 @@
-# @farcaster/create-mini-app
+# @farcasterorg/create-mini-app
 
-Get up and running quickly with [Mini Apps](https://miniapps.farcaster.xyz) by using the `@farcaster/create-mini-app` CLI.
+Get up and running quickly with [Mini Apps](https://miniapps.farcaster.xyz) by using the `@farcasterorg/create-mini-app` CLI.
 
 ## Installation
 
 ```bash
-npm create @farcaster/mini-app
+npm create @farcasterorg/mini-app
 # or
-pnpm create @farcaster/mini-app
+pnpm create @farcasterorg/mini-app
 # or
-yarn create @farcaster/mini-app
+yarn create @farcasterorg/mini-app
 ```
 
 ## Documentation

@@ -1,4 +1,4 @@
-import type { WireMiniAppHost } from '@farcaster/miniapp-core'
+import type { WireMiniAppHost } from '@farcasterorg/miniapp-core'
 import type { Remote } from 'comlink'
 import type { Emitter } from './types.ts'
 

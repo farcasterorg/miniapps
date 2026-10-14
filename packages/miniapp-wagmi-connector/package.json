@@ -1,5 +1,5 @@
 {
-  "name": "@farcaster/miniapp-wagmi-connector",
+  "name": "@farcasterorg/miniapp-wagmi-connector",
   "version": "2.0.0",
   "license": "MIT",
   "repository": {
@@ -20,8 +20,8 @@
     "src"
   ],
   "devDependencies": {
-    "@farcaster/miniapp-sdk": "workspace:*",
-    "@farcaster/tsconfig": "workspace:*",
+    "@farcasterorg/miniapp-sdk": "workspace:*",
+    "@farcasterorg/tsconfig": "workspace:*",
     "@wagmi/core": "^2.16.3",
     "typescript": "^5.8.3",
     "viem": "^2.21.57"
@@ -30,7 +30,7 @@
     "access": "public"
   },
   "peerDependencies": {
-    "@farcaster/miniapp-sdk": "^0.3.0",
+    "@farcasterorg/miniapp-sdk": "^0.3.0",
     "@wagmi/core": "^2.14.1",
     "viem": "^2.21.55"
   }

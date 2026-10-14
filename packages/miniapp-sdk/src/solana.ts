@@ -1,5 +1,5 @@
 /**
- * `@farcaster/miniapp-sdk/solana` — opt-in Solana support for the SDK.
+ * `@farcasterorg/miniapp-sdk/solana` — opt-in Solana support for the SDK.
  *
  * Importing this entrypoint has the side effect of registering the
  * `@solana/web3.js`-backed request unwrapper, which enables
@@ -9,13 +9,13 @@
  * Import it once in your app entry:
  *
  * ```ts
- * import '@farcaster/miniapp-sdk/solana'
+ * import '@farcasterorg/miniapp-sdk/solana'
  * ```
  *
  * Mini apps that do not use Solana should not import this module, so that
  * `@solana/web3.js` stays out of their bundle.
  */
-import { unwrapSolanaProviderRequest } from '@farcaster/miniapp-core/solana'
+import { unwrapSolanaProviderRequest } from '@farcasterorg/miniapp-core/solana'
 
 import { registerSolanaProviderUnwrap } from './solanaProvider.ts'
 

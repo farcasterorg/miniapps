@@ -1,4 +1,4 @@
-import type { MiniAppHost } from '@farcaster/miniapp-core'
+import type { MiniAppHost } from '@farcasterorg/miniapp-core'
 import type * as Provider from 'ox/Provider'
 import { useEffect } from 'react'
 import * as Comlink from '../comlink/index.ts'

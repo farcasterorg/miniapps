@@ -1,11 +1,11 @@
-# @farcaster/frame-host-react-native
+# @farcasterorg/frame-host-react-native
 
 Library for hosting Mini Apps in React Native
 
 ## Installation
 
 ```bash
-pnpm add @farcaster/frame-host-react-native
+pnpm add @farcasterorg/frame-host-react-native
 ```
 
 ## Documentation

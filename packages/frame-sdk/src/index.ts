@@ -1,15 +1,15 @@
 // Deprecation warning
 if (typeof console !== 'undefined' && console.warn) {
   console.warn(
-    '@farcaster/frame-sdk is deprecated. Please use @farcaster/miniapp-sdk instead.',
+    '@farcasterorg/frame-sdk is deprecated. Please use @farcasterorg/miniapp-sdk instead.',
   )
 }
 
 // Re-export everything from miniapp-sdk
-export * from '@farcaster/miniapp-sdk'
+export * from '@farcasterorg/miniapp-sdk'
 
 // Import for aliasing
-import { miniAppHost, sdk as miniAppSdk } from '@farcaster/miniapp-sdk'
+import { miniAppHost, sdk as miniAppSdk } from '@farcasterorg/miniapp-sdk'
 
 // Backward compatibility exports
 export const sdk = miniAppSdk

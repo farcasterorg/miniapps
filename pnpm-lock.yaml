@@ -68,10 +68,10 @@ importers:
 
   examples/react-ts:
     dependencies:
-      '@farcaster/frame-sdk':
+      '@farcasterorg/frame-sdk':
         specifier: workspace:*
         version: link:../../packages/frame-sdk
-      '@farcaster/frame-wagmi-connector':
+      '@farcasterorg/frame-wagmi-connector':
         specifier: workspace:*
         version: link:../../packages/frame-wagmi-connector
       '@tanstack/react-query':
@@ -111,10 +111,10 @@ importers:
 
   examples/vanilla:
     dependencies:
-      '@farcaster/miniapp-host':
+      '@farcasterorg/miniapp-host':
         specifier: workspace:*
         version: link:../../packages/miniapp-host
-      '@farcaster/miniapp-sdk':
+      '@farcasterorg/miniapp-sdk':
         specifier: workspace:*
         version: link:../../packages/miniapp-sdk
       mipd:
@@ -149,7 +149,7 @@ importers:
         specifier: ^1.1.1
         version: 1.1.1
     devDependencies:
-      '@farcaster/tsconfig':
+      '@farcasterorg/tsconfig':
         specifier: workspace:*
         version: link:../tsconfig
       '@types/fs-extra':
@@ -161,7 +161,7 @@ importers:
 
   packages/frame-core:
     dependencies:
-      '@farcaster/miniapp-core':
+      '@farcasterorg/miniapp-core':
         specifier: workspace:*
         version: link:../miniapp-core
       '@solana/web3.js':
@@ -174,7 +174,7 @@ importers:
         specifier: ^4.0.0
         version: 4.3.6
     devDependencies:
-      '@farcaster/tsconfig':
+      '@farcasterorg/tsconfig':
         specifier: workspace:*
         version: link:../tsconfig
       '@vitest/coverage-v8':
@@ -189,14 +189,14 @@ importers:
 
   packages/frame-host:
     dependencies:
-      '@farcaster/miniapp-host':
+      '@farcasterorg/miniapp-host':
         specifier: workspace:*
         version: link:../miniapp-host
       ox:
         specifier: ^0.14.0
         version: 0.14.10(typescript@5.8.3)(zod@4.3.6)
     devDependencies:
-      '@farcaster/tsconfig':
+      '@farcasterorg/tsconfig':
         specifier: workspace:*
         version: link:../tsconfig
       '@types/react':
@@ -211,14 +211,14 @@ importers:
 
   packages/frame-host-react-native:
     dependencies:
-      '@farcaster/miniapp-host-react-native':
+      '@farcasterorg/miniapp-host-react-native':
         specifier: workspace:*
         version: link:../miniapp-host-react-native
       ox:
         specifier: ^0.14.0
         version: 0.14.10(typescript@5.8.3)(zod@4.3.6)
     devDependencies:
-      '@farcaster/tsconfig':
+      '@farcasterorg/tsconfig':
         specifier: workspace:*
         version: link:../tsconfig
       '@types/react':
@@ -229,17 +229,17 @@ importers:
         version: 18.3.1
       react-native:
         specifier: ^0.76.5
-        version: 0.76.9(@babel/core@7.27.1)(@babel/preset-env@7.27.2(@babel/core@7.27.1))(@types/react@18.3.22)(bufferutil@4.0.9)(react@18.3.1)(utf-8-validate@5.0.10)
+        version: 0.76.9(@babel/core@7.28.4)(@babel/preset-env@7.27.2(@babel/core@7.28.4))(@types/react@18.3.22)(bufferutil@4.0.9)(react@18.3.1)(utf-8-validate@5.0.10)
       react-native-webview:
         specifier: ^13.13.5
-        version: 13.13.5(react-native@0.76.9(@babel/core@7.27.1)(@babel/preset-env@7.27.2(@babel/core@7.27.1))(@types/react@18.3.22)(bufferutil@4.0.9)(react@18.3.1)(utf-8-validate@5.0.10))(react@18.3.1)
+        version: 13.13.5(react-native@0.76.9(@babel/core@7.28.4)(@babel/preset-env@7.27.2(@babel/core@7.28.4))(@types/react@18.3.22)(bufferutil@4.0.9)(react@18.3.1)(utf-8-validate@5.0.10))(react@18.3.1)
       typescript:
         specifier: ^5.8.3
         version: 5.8.3
 
   packages/frame-node:
     dependencies:
-      '@farcaster/miniapp-node':
+      '@farcasterorg/miniapp-node':
         specifier: workspace:*
         version: link:../miniapp-node
       '@noble/curves':
@@ -252,7 +252,7 @@ importers:
         specifier: ^4.0.0
         version: 4.3.6
     devDependencies:
-      '@farcaster/tsconfig':
+      '@farcasterorg/tsconfig':
         specifier: workspace:*
         version: link:../tsconfig
       '@types/node':
@@ -270,12 +270,12 @@ importers:
 
   packages/frame-sdk:
     dependencies:
-      '@farcaster/miniapp-sdk':
-        specifier: workspace:*
-        version: link:../miniapp-sdk
       '@farcaster/quick-auth':
         specifier: 0.0.8
         version: 0.0.8(typescript@5.8.3)
+      '@farcasterorg/miniapp-sdk':
+        specifier: workspace:*
+        version: link:../miniapp-sdk
       comlink:
         specifier: ^4.4.2
         version: 4.4.2
@@ -286,7 +286,7 @@ importers:
         specifier: ^0.14.0
         version: 0.14.10(typescript@5.8.3)(zod@4.3.6)
     devDependencies:
-      '@farcaster/tsconfig':
+      '@farcasterorg/tsconfig':
         specifier: workspace:*
         version: link:../tsconfig
       esbuild:
@@ -301,13 +301,13 @@ importers:
 
   packages/frame-wagmi-connector:
     devDependencies:
-      '@farcaster/frame-sdk':
+      '@farcasterorg/frame-sdk':
         specifier: workspace:*
         version: link:../frame-sdk
-      '@farcaster/miniapp-wagmi-connector':
+      '@farcasterorg/miniapp-wagmi-connector':
         specifier: workspace:*
         version: link:../miniapp-wagmi-connector
-      '@farcaster/tsconfig':
+      '@farcasterorg/tsconfig':
         specifier: workspace:*
         version: link:../tsconfig
       '@wagmi/core':
@@ -322,7 +322,7 @@ importers:
 
   packages/mini-app-solana:
     dependencies:
-      '@farcaster/miniapp-core':
+      '@farcasterorg/miniapp-core':
         specifier: workspace:*
         version: link:../miniapp-core
       '@scure/base':
@@ -338,10 +338,10 @@ importers:
         specifier: ^1.1.0
         version: 1.1.0
     devDependencies:
-      '@farcaster/miniapp-sdk':
+      '@farcasterorg/miniapp-sdk':
         specifier: workspace:*
         version: link:../miniapp-sdk
-      '@farcaster/tsconfig':
+      '@farcasterorg/tsconfig':
         specifier: workspace:*
         version: link:../tsconfig
       '@solana/wallet-adapter-base':
@@ -372,7 +372,7 @@ importers:
         specifier: ^4.0.0
         version: 4.3.6
     devDependencies:
-      '@farcaster/tsconfig':
+      '@farcasterorg/tsconfig':
         specifier: workspace:*
         version: link:../tsconfig
       '@solana/web3.js':
@@ -390,14 +390,14 @@ importers:
 
   packages/miniapp-host:
     dependencies:
-      '@farcaster/miniapp-core':
+      '@farcasterorg/miniapp-core':
         specifier: workspace:*
         version: link:../miniapp-core
       ox:
         specifier: ^0.14.0
         version: 0.14.10(typescript@5.8.3)(zod@4.3.6)
     devDependencies:
-      '@farcaster/tsconfig':
+      '@farcasterorg/tsconfig':
         specifier: workspace:*
         version: link:../tsconfig
       '@solana/web3.js':
@@ -415,14 +415,14 @@ importers:
 
   packages/miniapp-host-react-native:
     dependencies:
-      '@farcaster/miniapp-host':
+      '@farcasterorg/miniapp-host':
         specifier: workspace:*
         version: link:../miniapp-host
       ox:
         specifier: ^0.14.0
         version: 0.14.10(typescript@5.8.3)(zod@4.3.6)
     devDependencies:
-      '@farcaster/tsconfig':
+      '@farcasterorg/tsconfig':
         specifier: workspace:*
         version: link:../tsconfig
       '@types/react':
@@ -433,17 +433,17 @@ importers:
         version: 18.3.1
       react-native:
         specifier: ^0.76.5
-        version: 0.76.9(@babel/core@7.28.4)(@babel/preset-env@7.27.2(@babel/core@7.28.4))(@types/react@18.3.22)(bufferutil@4.0.9)(react@18.3.1)(utf-8-validate@5.0.10)
+        version: 0.76.9(@babel/core@7.27.1)(@babel/preset-env@7.27.2(@babel/core@7.27.1))(@types/react@18.3.22)(bufferutil@4.0.9)(react@18.3.1)(utf-8-validate@5.0.10)
       react-native-webview:
         specifier: ^13.13.5
-        version: 13.13.5(react-native@0.76.9(@babel/core@7.28.4)(@babel/preset-env@7.27.2(@babel/core@7.28.4))(@types/react@18.3.22)(bufferutil@4.0.9)(react@18.3.1)(utf-8-validate@5.0.10))(react@18.3.1)
+        version: 13.13.5(react-native@0.76.9(@babel/core@7.27.1)(@babel/preset-env@7.27.2(@babel/core@7.27.1))(@types/react@18.3.22)(bufferutil@4.0.9)(react@18.3.1)(utf-8-validate@5.0.10))(react@18.3.1)
       typescript:
         specifier: ^5.8.3
         version: 5.8.3
 
   packages/miniapp-node:
     dependencies:
-      '@farcaster/miniapp-core':
+      '@farcasterorg/miniapp-core':
         specifier: workspace:*
         version: link:../miniapp-core
       '@noble/curves':
@@ -456,7 +456,7 @@ importers:
         specifier: ^4.0.0
         version: 4.3.6
     devDependencies:
-      '@farcaster/tsconfig':
+      '@farcasterorg/tsconfig':
         specifier: workspace:*
         version: link:../tsconfig
       '@types/node':
@@ -474,12 +474,15 @@ importers:
 
   packages/miniapp-sdk:
     dependencies:
-      '@farcaster/miniapp-core':
-        specifier: workspace:*
-        version: link:../miniapp-core
       '@farcaster/quick-auth':
         specifier: ^0.0.6
         version: 0.0.6(typescript@5.8.3)
+      '@farcasterorg/miniapp-core':
+        specifier: workspace:*
+        version: link:../miniapp-core
+      '@farcasterorg/quick-auth':
+        specifier: workspace:*
+        version: link:../quick-auth
       comlink:
         specifier: ^4.4.2
         version: 4.4.2
@@ -490,7 +493,7 @@ importers:
         specifier: ^0.14.0
         version: 0.14.10(typescript@5.8.3)(zod@4.3.6)
     devDependencies:
-      '@farcaster/tsconfig':
+      '@farcasterorg/tsconfig':
         specifier: workspace:*
         version: link:../tsconfig
       '@solana/web3.js':
@@ -508,10 +511,10 @@ importers:
 
   packages/miniapp-wagmi-connector:
     devDependencies:
-      '@farcaster/miniapp-sdk':
+      '@farcasterorg/miniapp-sdk':
         specifier: workspace:*
         version: link:../miniapp-sdk
-      '@farcaster/tsconfig':
+      '@farcasterorg/tsconfig':
         specifier: workspace:*
         version: link:../tsconfig
       '@wagmi/core':
@@ -524,25 +527,50 @@ importers:
         specifier: ^2.21.57
         version: 2.30.0(bufferutil@4.0.9)(typescript@5.8.3)(utf-8-validate@5.0.10)(zod@3.25.56)
 
+  packages/quick-auth:
+    dependencies:
+      '@farcaster/quick-auth':
+        specifier: ^0.0.8
+        version: 0.0.8(typescript@5.9.2)
+      ox:
+        specifier: ^0.14.0
+        version: 0.14.10(typescript@5.9.2)(zod@4.3.6)
+      zod:
+        specifier: ^4.0.0
+        version: 4.3.6
+    devDependencies:
+      '@farcasterorg/tsconfig':
+        specifier: workspace:*
+        version: link:../tsconfig
+      '@types/node':
+        specifier: ^22.10.2
+        version: 22.15.20
+      typescript:
+        specifier: ^5.8.3
+        version: 5.9.2
+      vitest:
+        specifier: ^2.1.9
+        version: 2.1.9(@types/node@22.15.20)(lightningcss@1.29.3)(terser@5.44.0)
+
   packages/tsconfig: {}
 
   site:
     devDependencies:
-      '@farcaster/miniapp-core':
-        specifier: workspace:*
-        version: link:../packages/miniapp-core
-      '@farcaster/miniapp-node':
-        specifier: workspace:*
-        version: link:../packages/miniapp-node
-      '@farcaster/miniapp-sdk':
-        specifier: workspace:*
-        version: link:../packages/miniapp-sdk
-      '@farcaster/miniapp-wagmi-connector':
-        specifier: workspace:*
-        version: link:../packages/miniapp-wagmi-connector
       '@farcaster/quick-auth':
         specifier: ^0.0.4
         version: 0.0.4(typescript@5.9.2)
+      '@farcasterorg/miniapp-core':
+        specifier: workspace:*
+        version: link:../packages/miniapp-core
+      '@farcasterorg/miniapp-node':
+        specifier: workspace:*
+        version: link:../packages/miniapp-node
+      '@farcasterorg/miniapp-sdk':
+        specifier: workspace:*
+        version: link:../packages/miniapp-sdk
+      '@farcasterorg/miniapp-wagmi-connector':
+        specifier: workspace:*
+        version: link:../packages/miniapp-wagmi-connector
       '@types/lodash.isequal':
         specifier: ^4.5.8
         version: 4.5.8
@@ -11004,6 +11032,12 @@ snapshots:
       typescript: 5.8.3
       zod: 3.25.56
 
+  '@farcaster/quick-auth@0.0.8(typescript@5.9.2)':
+    dependencies:
+      jose: 5.10.0
+      typescript: 5.9.2
+      zod: 3.25.56
+
   '@fastify/busboy@2.1.1': {}
 
   '@floating-ui/core@1.6.9':
@@ -15266,6 +15300,11 @@ snapshots:
       typescript: 5.8.3
       zod: 4.3.6
 
+  abitype@1.2.3(typescript@5.9.2)(zod@4.3.6):
+    optionalDependencies:
+      typescript: 5.9.2
+      zod: 4.3.6
+
   abort-controller@3.0.0:
     dependencies:
       event-target-shim: 5.0.1
@@ -18697,6 +18736,21 @@ snapshots:
       eventemitter3: 5.0.1
     optionalDependencies:
       typescript: 5.8.3
+    transitivePeerDependencies:
+      - zod
+
+  ox@0.14.10(typescript@5.9.2)(zod@4.3.6):
+    dependencies:
+      '@adraffy/ens-normalize': 1.11.0
+      '@noble/ciphers': 1.3.0
+      '@noble/curves': 1.9.1
+      '@noble/hashes': 1.8.0
+      '@scure/bip32': 1.7.0
+      '@scure/bip39': 1.6.0
+      abitype: 1.2.3(typescript@5.9.2)(zod@4.3.6)
+      eventemitter3: 5.0.1
+    optionalDependencies:
+      typescript: 5.9.2
     transitivePeerDependencies:
       - zod
 

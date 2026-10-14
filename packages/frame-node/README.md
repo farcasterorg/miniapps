@@ -1,11 +1,11 @@
-# @farcaster/frame-node
+# @farcasterorg/frame-node
 
 Utility methods for Mini App backends
 
 ## Installation
 
 ```bash
-pnpm add @farcaster/frame-node
+pnpm add @farcasterorg/frame-node
 ```
 
 ## Documentation

@@ -1,5 +1,5 @@
 {
-  "name": "@farcaster/frame-sdk",
+  "name": "@farcasterorg/frame-sdk",
   "version": "0.2.0",
   "license": "MIT",
   "repository": {
@@ -21,14 +21,14 @@
     "src"
   ],
   "devDependencies": {
-    "@farcaster/tsconfig": "workspace:*",
+    "@farcasterorg/tsconfig": "workspace:*",
     "esbuild": "^0.25.0",
     "mipd": "^0.0.7",
     "typescript": "^5.8.3"
   },
   "dependencies": {
-    "@farcaster/miniapp-sdk": "workspace:*",
     "@farcaster/quick-auth": "0.0.8",
+    "@farcasterorg/miniapp-sdk": "workspace:*",
     "comlink": "^4.4.2",
     "eventemitter3": "^5.0.1",
     "ox": "^0.14.0"

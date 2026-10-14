@@ -1,4 +1,4 @@
-import { serverEventSchema } from '@farcaster/miniapp-core'
+import { serverEventSchema } from '@farcasterorg/miniapp-core'
 import {
   type VerifyJsonFarcasterSignature,
   verifyJsonFarcasterSignature,

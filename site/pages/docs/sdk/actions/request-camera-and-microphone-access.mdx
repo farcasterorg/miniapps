@@ -30,7 +30,7 @@ Camera and microphone access is not supported in web mini apps. The action will 
 ## Usage
 
 ```ts twoslash
-import { sdk } from '@farcaster/miniapp-sdk'
+import { sdk } from '@farcasterorg/miniapp-sdk'
 
 try {
   await sdk.actions.requestCameraAndMicrophoneAccess()
@@ -53,7 +53,7 @@ Returns a `Promise<void>` that:
 Before using this action, check if it's supported:
 
 ```ts twoslash
-import { sdk } from '@farcaster/miniapp-sdk'
+import { sdk } from '@farcasterorg/miniapp-sdk'
 
 // Check if the feature is available
 const context = await sdk.context
@@ -78,7 +78,7 @@ if (context.features?.cameraAndMicrophoneAccess) {
 ## Example: Video Recording
 
 ```ts twoslash
-import { sdk } from '@farcaster/miniapp-sdk'
+import { sdk } from '@farcasterorg/miniapp-sdk'
 
 async function startVideoRecording() {
   try {

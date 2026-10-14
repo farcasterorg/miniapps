@@ -1,4 +1,4 @@
-import { sdk } from '@farcaster/miniapp-sdk'
+import { sdk } from '@farcasterorg/miniapp-sdk'
 import { createStore } from 'mipd'
 
 const store = createStore()

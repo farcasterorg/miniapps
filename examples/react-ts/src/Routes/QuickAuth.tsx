@@ -1,4 +1,4 @@
-import { sdk } from '@farcaster/frame-sdk'
+import { sdk } from '@farcasterorg/frame-sdk'
 import { useCallback, useState } from 'react'
 import { preconnect } from 'react-dom'
 

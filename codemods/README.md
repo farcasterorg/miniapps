@@ -9,13 +9,13 @@ This tool might make mistakes. Make sure you are working from a clean, committed
 ## Installation
 
 ```bash
-npm install -g @farcaster/miniapp-codemods
+npm install -g @farcasterorg/miniapp-codemods
 ```
 
 Or run directly with npx:
 
 ```bash
-npx @farcaster/miniapp-codemods <path-to-your-project>
+npx @farcasterorg/miniapp-codemods <path-to-your-project>
 ```
 
 ## Usage
@@ -46,7 +46,7 @@ miniapp-migrate ./src --transform update-imports
 
 ### Available transforms
 
-- `update-imports` - Updates package imports from `@farcaster/frame-*` to `@farcaster/miniapp-*`
+- `update-imports` - Updates package imports from `@farcaster/frame-*` to `@farcasterorg/miniapp-*`
 - `update-api-methods` - Updates API method names (e.g., `frameHost` → `miniAppHost`)
 - `update-types` - Updates TypeScript type names (e.g., `FrameContext` → `MiniAppContext`)
 - `update-event-names` - Updates event names (e.g., `frame_added` → `miniapp_added`)
@@ -57,10 +57,10 @@ miniapp-migrate ./src --transform update-imports
 
 ```diff
 - import { frameHost } from '@farcaster/frame-sdk'
-+ import { miniAppHost } from '@farcaster/miniapp-sdk'
++ import { miniAppHost } from '@farcasterorg/miniapp-sdk'
 
 - import { FrameContext } from '@farcaster/frame-core'
-+ import { MiniAppContext } from '@farcaster/miniapp-core'
++ import { MiniAppContext } from '@farcasterorg/miniapp-core'
 ```
 
 ### 2. API methods
@@ -121,8 +121,8 @@ After running the codemods, you'll need to:
    ```json
    {
      "dependencies": {
-       "@farcaster/miniapp-sdk": "^0.0.61",
-       "@farcaster/miniapp-wagmi-connector": "^0.0.5"
+       "@farcasterorg/miniapp-sdk": "^0.0.61",
+       "@farcasterorg/miniapp-wagmi-connector": "^0.0.5"
      }
    }
    ```

@@ -43,21 +43,21 @@ Developer mode unlocks tools for creating manifests, previewing your mini app, a
 ## Quick Start
 
 For new projects, you can set up an app using the
-[@farcaster/create-mini-app](https://github.com/farcasterxyz/miniapps/tree/main/packages/create-mini-app)
+[@farcasterorg/create-mini-app](https://github.com/farcasterxyz/miniapps/tree/main/packages/create-mini-app)
 CLI. This will prompt you to set up a project for your app.
 
 :::code-group
 
 ```bash [npm]
-npm create @farcaster/mini-app
+npm create @farcasterorg/mini-app
 ```
 
 ```bash [pnpm]
-pnpm create @farcaster/mini-app
+pnpm create @farcasterorg/mini-app
 ```
 
 ```bash [yarn]
-yarn create @farcaster/mini-app
+yarn create @farcasterorg/mini-app
 ```
 :::
 
@@ -76,15 +76,15 @@ For existing projects, install the MiniApp SDK:
 :::code-group
 
 ```bash [npm]
-npm install @farcaster/miniapp-sdk
+npm install @farcasterorg/miniapp-sdk
 ```
 
 ```bash [pnpm]
-pnpm add @farcaster/miniapp-sdk
+pnpm add @farcasterorg/miniapp-sdk
 ```
 
 ```bash [yarn]
-yarn add @farcaster/miniapp-sdk
+yarn add @farcasterorg/miniapp-sdk
 ```
 
 :::
@@ -98,7 +98,7 @@ the bottom of your HTML file with the following content.
 
 ```html
 <script type="module">
-  import { sdk } from 'https://esm.sh/@farcaster/miniapp-sdk'
+  import { sdk } from 'https://esm.sh/@farcasterorg/miniapp-sdk'
 </script>
 ```
 
@@ -107,7 +107,7 @@ the bottom of your HTML file with the following content.
 After your app loads, you must call `sdk.actions.ready()` to hide the splash screen and display your content:
 
 ```javascript
-import { sdk } from '@farcaster/miniapp-sdk'
+import { sdk } from '@farcasterorg/miniapp-sdk'
 
 // After your app is fully loaded and ready to display
 await sdk.actions.ready()

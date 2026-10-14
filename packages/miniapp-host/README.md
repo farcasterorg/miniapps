@@ -1,11 +1,11 @@
-# @farcaster/miniapp-host
+# @farcasterorg/miniapp-host
 
 Library for hosting Mini Apps
 
 ## Installation
 
 ```bash
-pnpm add @farcaster/miniapp-host
+pnpm add @farcasterorg/miniapp-host
 ```
 
 ## Documentation

@@ -1,4 +1,4 @@
-import { domainManifestSchema } from '@farcaster/miniapp-sdk'
+import { domainManifestSchema } from '@farcasterorg/miniapp-sdk'
 import isEqual from 'lodash.isequal'
 import type { z } from 'zod'
 

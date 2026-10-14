@@ -1,5 +1,5 @@
 {
-  "name": "@farcaster/create-mini-app",
+  "name": "@farcasterorg/create-mini-app",
   "version": "0.1.2",
   "description": "Create Farcaster Mini Apps with one command",
   "main": "index.js",
@@ -27,7 +27,7 @@
     "dev": "pnpm run src/cli.ts"
   },
   "devDependencies": {
-    "@farcaster/tsconfig": "workspace:*",
+    "@farcasterorg/tsconfig": "workspace:*",
     "@types/fs-extra": "^11.0.4",
     "typescript": "^5.8.3"
   },

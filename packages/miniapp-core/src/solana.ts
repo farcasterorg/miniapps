@@ -4,7 +4,7 @@
  * Declared locally (rather than re-exported from `@solana/web3.js`) so that
  * importing this type from the package root never forces resolution of
  * `@solana/web3.js`. `@solana/web3.js` is an optional peer dependency; the
- * web3.js-backed helpers live in the `@farcaster/miniapp-core/solana`
+ * web3.js-backed helpers live in the `@farcasterorg/miniapp-core/solana`
  * subpath.
  */
 export type SolanaSendOptions = {

@@ -1,4 +1,4 @@
-This is a [Vite](https://vitejs.dev) project bootstrapped with [`@farcaster/create-mini-app`](https://github.com/farcasterxyz/miniapps/tree/main/packages/create-mini-app).
+This is a [Vite](https://vitejs.dev) project bootstrapped with [`@farcasterorg/create-mini-app`](https://github.com/farcasterxyz/miniapps/tree/main/packages/create-mini-app).
 
 For documentation and guides, visit [miniapps.farcaster.xyz](https://miniapps.farcaster.xyz/docs/getting-started).
 

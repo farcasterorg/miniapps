@@ -14,22 +14,22 @@
 </p>
 
 <p align="center">
-  <a href="https://www.npmjs.com/package/@farcaster/frame-sdk">
+  <a href="https://www.npmjs.com/package/@farcasterorg/frame-sdk">
     <picture>
-      <source media="(prefers-color-scheme: dark)" srcset="https://img.shields.io/npm/v/@farcaster/frame-sdk?colorA=21262d&colorB=21262d">
-      <img src="https://img.shields.io/npm/v/@farcaster/frame-sdk?colorA=f6f8fa&colorB=f6f8fa" alt="Version">
+      <source media="(prefers-color-scheme: dark)" srcset="https://img.shields.io/npm/v/@farcasterorg/frame-sdk?colorA=21262d&colorB=21262d">
+      <img src="https://img.shields.io/npm/v/@farcasterorg/frame-sdk?colorA=f6f8fa&colorB=f6f8fa" alt="Version">
     </picture>
   </a>
   <a href="https://github.com/farcasterxyz/miniapps/blob/main/LICENSE">
     <picture>
-      <source media="(prefers-color-scheme: dark)" srcset="https://img.shields.io/npm/l/@farcaster/frame-sdk?colorA=21262d&colorB=21262d">
-      <img src="https://img.shields.io/npm/l/@farcaster/frame-sdk?colorA=f6f8fa&colorB=f6f8fa" alt="MIT License">
+      <source media="(prefers-color-scheme: dark)" srcset="https://img.shields.io/npm/l/@farcasterorg/frame-sdk?colorA=21262d&colorB=21262d">
+      <img src="https://img.shields.io/npm/l/@farcasterorg/frame-sdk?colorA=f6f8fa&colorB=f6f8fa" alt="MIT License">
     </picture>
   </a>
-  <a href="https://www.npmjs.com/package/@farcaster/frame-sdk">
+  <a href="https://www.npmjs.com/package/@farcasterorg/frame-sdk">
     <picture>
-      <source media="(prefers-color-scheme: dark)" srcset="https://img.shields.io/npm/dm/@farcaster/frame-sdk?colorA=21262d&colorB=21262d">
-      <img src="https://img.shields.io/npm/dm/@farcaster/frame-sdk?colorA=f6f8fa&colorB=f6f8fa" alt="Downloads per month">
+      <source media="(prefers-color-scheme: dark)" srcset="https://img.shields.io/npm/dm/@farcasterorg/frame-sdk?colorA=21262d&colorB=21262d">
+      <img src="https://img.shields.io/npm/dm/@farcasterorg/frame-sdk?colorA=f6f8fa&colorB=f6f8fa" alt="Downloads per month">
     </picture>
   </a>
 </p>

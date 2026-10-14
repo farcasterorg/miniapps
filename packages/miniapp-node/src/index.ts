@@ -1,4 +1,4 @@
-export * from '@farcaster/miniapp-core'
+export * from '@farcasterorg/miniapp-core'
 export * from './farcaster.ts'
 export * from './jfs.ts'
 export * from './neynar.ts'

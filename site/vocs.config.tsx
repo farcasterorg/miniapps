@@ -173,6 +173,10 @@ export default defineConfig({
             ],
           },
           {
+            text: 'Protocol Auth',
+            link: '/docs/sdk/protocol-auth',
+          },
+          {
             text: 'Actions',
             collapsed: true,
             items: [

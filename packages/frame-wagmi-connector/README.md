@@ -1,4 +1,4 @@
-# @farcaster/frame-wagmi-connector
+# @farcasterorg/frame-wagmi-connector
 
 A [Wagmi connector](https://wagmi.sh/) for interacting with wallets in Mini Apps.
 
@@ -8,7 +8,7 @@ A [Wagmi connector](https://wagmi.sh/) for interacting with wallets in Mini Apps
 [Install and setup wagmi](https://wagmi.sh/react/getting-started#manual-installation).
 
 ```bash
-pnpm add @farcaster/frame-wagmi-connector
+pnpm add @farcasterorg/frame-wagmi-connector
 ```
 
 ## Usage
@@ -17,7 +17,7 @@ Connect to users wallet:
 
 ```
 import { useConnect } from 'wagmi'
-import { farcasterFrame } from "@farcaster/frame-wagmi-connector";
+import { farcasterFrame } from "@farcasterorg/frame-wagmi-connector";
 
 function App() {
   const { connect } = useConnect()

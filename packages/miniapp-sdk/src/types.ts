@@ -20,10 +20,11 @@ import type {
   ViewCast,
   ViewProfile,
   ViewToken,
-} from '@farcaster/miniapp-core'
+} from '@farcasterorg/miniapp-core'
 import type { EventEmitter } from 'eventemitter3'
 import type * as Provider from 'ox/Provider'
 import type { Back } from './back.ts'
+import type { ProtocolAuth } from './protocolAuth.ts'
 import type { QuickAuth } from './quickAuth.ts'
 
 declare global {
@@ -72,6 +73,7 @@ export type MiniAppSDK = {
   context: Promise<Context.MiniAppContext>
   back: Back
   quickAuth: QuickAuth
+  protocolAuth: ProtocolAuth
   actions: {
     ready: (options?: Partial<Ready.ReadyOptions>) => Promise<void>
     openUrl: (url: string | { url: string }) => Promise<void>

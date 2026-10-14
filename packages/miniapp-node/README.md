@@ -1,11 +1,11 @@
-# @farcaster/miniapp-node
+# @farcasterorg/miniapp-node
 
 Utility methods for Mini App backends
 
 ## Installation
 
 ```bash
-pnpm add @farcaster/miniapp-node
+pnpm add @farcasterorg/miniapp-node
 ```
 
 ## Documentation

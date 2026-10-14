@@ -1,4 +1,4 @@
-import { farcasterFrame as frameConnector } from '@farcaster/frame-wagmi-connector'
+import { farcasterFrame as frameConnector } from '@farcasterorg/frame-wagmi-connector'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { useAccount, useConnect, useSignMessage, WagmiProvider } from 'wagmi'
 import { config } from '../wagmiConfig.ts'

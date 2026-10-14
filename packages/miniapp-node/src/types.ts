@@ -1,4 +1,4 @@
-import type { MiniAppServerEvent } from '@farcaster/miniapp-core'
+import type { MiniAppServerEvent } from '@farcasterorg/miniapp-core'
 
 export type VerifyAppKeyResult =
   | { valid: true; appFid: number }

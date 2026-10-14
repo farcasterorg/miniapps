@@ -1,5 +1,5 @@
 /** biome-ignore-all lint/suspicious/noConsole: console is useful for debugging live apps */
-import type { HostEndpoint } from '@farcaster/miniapp-host'
+import type { HostEndpoint } from '@farcasterorg/miniapp-host'
 
 import type { RefObject } from 'react'
 import type WebView from 'react-native-webview'

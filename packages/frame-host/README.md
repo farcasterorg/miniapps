@@ -1,11 +1,11 @@
-# @farcaster/frame-host
+# @farcasterorg/frame-host
 
 Library for hosting Mini Apps
 
 ## Installation
 
 ```bash
-pnpm add @farcaster/frame-host
+pnpm add @farcasterorg/frame-host
 ```
 
 ## Documentation

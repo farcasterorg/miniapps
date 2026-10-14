@@ -242,7 +242,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       url.searchParams.get('miniApp') === 'true'
 
     if (isMini) {
-      import('@farcaster/miniapp-sdk').then(({ sdk }) => {
+      import('@farcasterorg/miniapp-sdk').then(({ sdk }) => {
         // Mini-App–specific bootstrap here
         // e.g. sdk.actions.ready()
       })

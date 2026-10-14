@@ -1,5 +1,5 @@
 {
-  "extends": "@farcaster/tsconfig/node.json",
+  "extends": "@farcasterorg/tsconfig/node.json",
   "include": ["src"],
   "exclude": ["esm", "dist", "build", "node_modules"],
   "compilerOptions": {

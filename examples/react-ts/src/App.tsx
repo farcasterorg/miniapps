@@ -1,4 +1,4 @@
-import { sdk } from '@farcaster/frame-sdk'
+import { sdk } from '@farcasterorg/frame-sdk'
 import { useEffect } from 'react'
 import { NavLink, Route, Routes } from 'react-router'
 import QuickAuth from './Routes/QuickAuth.tsx'

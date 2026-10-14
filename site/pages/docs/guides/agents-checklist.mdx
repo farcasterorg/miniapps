@@ -4,7 +4,7 @@ description: A structured checklist for AI agents and LLMs to help developers tr
 ---
 
 import { ManifestSchemaRenderer, SchemaRenderer } from '../../../components/ManifestRender.tsx'
-import { domainManifestSchema } from '@farcaster/miniapp-sdk'
+import { domainManifestSchema } from '@farcasterorg/miniapp-sdk'
 
 ## Purpose
 
@@ -28,14 +28,14 @@ When helping developers with Mini Apps:
 - **DO NOT** mix Frame and Mini App terminology (Mini Apps are not Frames)
 - **DO NOT** use outdated examples from before 2024
 - **DO NOT** use `fc:frame` meta tag for new implementations. It is only supported for legacy apps
-- **ALWAYS** verify fields against the official SDK schema at `@farcaster/miniapp-sdk`
+- **ALWAYS** verify fields against the official SDK schema at `@farcasterorg/miniapp-sdk`
 - **ALWAYS** use the official documentation at miniapps.farcaster.xyz
 - **ALWAYS** check that examples use `miniapp` or `frame` (not `frames`) in manifest
 - **ALWAYS** use `fc:miniapp` meta tag for new Mini Apps (not `fc:frame`)
 
 If using example code, ensure it's from:
 - Official Mini Apps documentation (this site)
-- The @farcaster/miniapp-sdk package
+- The @farcasterorg/miniapp-sdk package
 - Examples that use `"version": "1"` not `"version": "next"`
 
 ## Prerequisites
@@ -230,7 +230,7 @@ echo "https://farcaster.xyz/~/developers/mini-apps/preview?url=$encoded_url"
 
 **Solution:** Ensure the app calls ready() after initialization:
 ```javascript
-import { sdk } from '@farcaster/miniapp-sdk'
+import { sdk } from '@farcasterorg/miniapp-sdk'
 
 // After app is ready to display
 await sdk.actions.ready()

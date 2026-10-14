@@ -1,5 +1,5 @@
 {
-  "name": "@farcaster/frame-host-react-native",
+  "name": "@farcasterorg/frame-host-react-native",
   "version": "0.2.0",
   "license": "MIT",
   "repository": {
@@ -19,7 +19,7 @@
     "src"
   ],
   "devDependencies": {
-    "@farcaster/tsconfig": "workspace:*",
+    "@farcasterorg/tsconfig": "workspace:*",
     "@types/react": "^18.3.18",
     "react": "^18.3.1",
     "react-native": "^0.76.5",
@@ -31,7 +31,7 @@
     "react-native-webview": ">=13.0.0"
   },
   "dependencies": {
-    "@farcaster/miniapp-host-react-native": "workspace:*",
+    "@farcasterorg/miniapp-host-react-native": "workspace:*",
     "ox": "^0.14.0"
   }
 }

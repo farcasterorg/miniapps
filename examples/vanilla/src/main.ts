@@ -1,4 +1,4 @@
-import { exposeToIframe, type MiniAppHost } from '@farcaster/miniapp-host'
+import { exposeToIframe, type MiniAppHost } from '@farcasterorg/miniapp-host'
 import './style.css'
 
 declare global {

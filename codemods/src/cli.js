@@ -16,7 +16,7 @@ const __dirname = path.dirname(__filename);
 const transforms = [
   {
     name: 'update-imports',
-    description: 'Update package imports from @farcaster/frame-* to @farcaster/miniapp-*',
+    description: 'Update package imports from @farcaster/frame-* to @farcasterorg/miniapp-*',
     filePattern: '**/*.{js,jsx,ts,tsx}',
   },
   {
@@ -211,7 +211,7 @@ async function main() {
     console.log(chalk.yellow(`\n⚠️  Important notes:`));
     console.log(chalk.gray(`  1. Review the changes to ensure they're correct`));
     console.log(chalk.gray(`  2. The old frame packages still work but show deprecation warnings`));
-    console.log(chalk.gray(`  3. Update your package.json dependencies to use @farcaster/miniapp-* packages`));
+    console.log(chalk.gray(`  3. Update your package.json dependencies to use @farcasterorg/miniapp-* packages`));
     console.log(chalk.gray(`  4. Test your application thoroughly after migration`));
   }
 }

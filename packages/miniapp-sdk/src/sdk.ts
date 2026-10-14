@@ -3,10 +3,11 @@ import {
   type MiniAppClientEvent,
   SignIn,
   SignManifest,
-} from '@farcaster/miniapp-core'
+} from '@farcasterorg/miniapp-core'
 import { createBack } from './back.ts'
 import { ethereumProvider, getEthereumProvider } from './ethereumProvider.ts'
 import { miniAppHost } from './miniAppHost.ts'
+import { protocolAuth } from './protocolAuth.ts'
 import { quickAuth } from './quickAuth.ts'
 import { emitter } from './sdkEmitter.ts'
 import { getSolanaProvider } from './solanaProvider.ts'
@@ -82,6 +83,7 @@ export const sdk: MiniAppSDK = {
   context: miniAppHost.context,
   back: createBack({ miniAppHost, emitter }),
   quickAuth,
+  protocolAuth,
   actions: {
     setPrimaryButton: miniAppHost.setPrimaryButton.bind(miniAppHost),
     ready: async (options = {}) => {

@@ -24,30 +24,30 @@ Use the [Quick Setup (using React) guide](https://github.com/anza-xyz/wallet-ada
 :::code-group
 
 ```bash [npm]
-npm install @farcaster/mini-app-solana
+npm install @farcasterorg/mini-app-solana
 ```
 
 ```bash [pnpm]
-pnpm add @farcaster/mini-app-solana
+pnpm add @farcasterorg/mini-app-solana
 ```
 
 ```bash [yarn]
-yarn add @farcaster/mini-app-solana
+yarn add @farcasterorg/mini-app-solana
 ```
 
 :::
 
 ### Render the Farcaster Solana provider
 
-In place of `ConnectionProvider` and `WalletProvider` from the Wallet Adapter guide, you should render `FarcasterSolanaProvider` from `@farcaster/mini-app-solana`.
+In place of `ConnectionProvider` and `WalletProvider` from the Wallet Adapter guide, you should render `FarcasterSolanaProvider` from `@farcasterorg/mini-app-solana`.
 
 This does two things:
-1. Importing from `@farcaster/mini-app-solana` has the side effect of triggering the Farcaster wallet to register via Wallet Standard.
+1. Importing from `@farcasterorg/mini-app-solana` has the side effect of triggering the Farcaster wallet to register via Wallet Standard.
 2. Sets up Wallet Adapter to automatically select the Farcaster wallet.
 
 ```tsx
 import * as React from 'react';
-import { FarcasterSolanaProvider } from '@farcaster/mini-app-solana';
+import { FarcasterSolanaProvider } from '@farcasterorg/mini-app-solana';
 import { useWallet } from '@solana/wallet-adapter-react';
 
 const solanaEndpoint = 'https://mainnet.helius-rpc.com/?api-key=YOUR_API_KEY';
@@ -84,7 +84,7 @@ This provider is modeled after `window.phantom.solana` and its full API can be f
 
 Because this provider works with `@solana/web3.js` transaction objects,
 `@solana/web3.js` is an optional peer dependency. To use the low-level provider,
-install `@solana/web3.js` and opt in by importing `@farcaster/miniapp-sdk/solana`
+install `@solana/web3.js` and opt in by importing `@farcasterorg/miniapp-sdk/solana`
 once in your app entry:
 
 :::code-group
@@ -105,13 +105,13 @@ yarn add @solana/web3.js
 
 ```tsx
 // Enables sdk.wallet.getSolanaProvider(). Import once in your app entry.
-import '@farcaster/miniapp-sdk/solana';
-import { sdk } from '@farcaster/miniapp-sdk';
+import '@farcasterorg/miniapp-sdk/solana';
+import { sdk } from '@farcasterorg/miniapp-sdk';
 
 const solanaProvider = await sdk.wallet.getSolanaProvider();
 ```
 
-Mini apps that use `@farcaster/mini-app-solana` (the recommended Wallet Standard
+Mini apps that use `@farcasterorg/mini-app-solana` (the recommended Wallet Standard
 integration above) do not need this — that path does not use the low-level
 provider.
 
@@ -122,7 +122,7 @@ It's also possible to interface with the user's Solana wallet directly through W
 In order to do so, it's important that you still import our package in your app entry:
 
 ```tsx
-import '@farcaster/mini-app-solana';
+import '@farcasterorg/mini-app-solana';
 ```
 
 This ensures that the user's Solana wallet registers with Wallet Standard.

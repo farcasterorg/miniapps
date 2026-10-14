@@ -1,0 +1,87 @@
+{
+  "name": "@farcasterorg/quick-auth",
+  "version": "0.1.0",
+  "description": "Quick Auth without an auth server: wallet-signed tokens verified against Farcaster protocol state.",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/farcasterxyz/miniapps.git",
+    "directory": "packages/quick-auth"
+  },
+  "main": "dist/index.js",
+  "module": "esm/index.js",
+  "types": "dist/index.d.ts",
+  "sideEffects": false,
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./esm/index.d.ts",
+        "default": "./esm/index.js"
+      },
+      "require": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      }
+    },
+    "./token": {
+      "import": {
+        "types": "./esm/token.d.ts",
+        "default": "./esm/token.js"
+      },
+      "require": {
+        "types": "./dist/token.d.ts",
+        "default": "./dist/token.js"
+      }
+    },
+    "./light": {
+      "import": {
+        "types": "./esm/light.d.ts",
+        "default": "./esm/light.js"
+      },
+      "require": {
+        "types": "./dist/light.d.ts",
+        "default": "./dist/light.js"
+      }
+    },
+    "./decodeJwt": {
+      "import": {
+        "types": "./esm/decodeJwt.d.ts",
+        "default": "./esm/decodeJwt.js"
+      },
+      "require": {
+        "types": "./dist/decodeJwt.d.ts",
+        "default": "./dist/decodeJwt.js"
+      }
+    },
+    "./package.json": "./package.json"
+  },
+  "scripts": {
+    "clean": "rm -rf dist esm",
+    "prebuild": "npm run clean",
+    "build": "pnpm build:cjs & pnpm build:esm",
+    "build:cjs": "tsc -p tsconfig.node.json",
+    "build:esm": "tsc -p tsconfig.json",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest"
+  },
+  "files": [
+    "dist",
+    "esm",
+    "src"
+  ],
+  "devDependencies": {
+    "@farcasterorg/tsconfig": "workspace:*",
+    "@types/node": "^22.10.2",
+    "typescript": "^5.8.3",
+    "vitest": "^2.1.9"
+  },
+  "dependencies": {
+    "@farcaster/quick-auth": "^0.0.8",
+    "ox": "^0.14.0",
+    "zod": "^4.0.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

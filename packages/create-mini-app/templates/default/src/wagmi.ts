@@ -1,4 +1,4 @@
-import { farcasterMiniApp as miniAppConnector } from "@farcaster/miniapp-wagmi-connector";
+import { farcasterMiniApp as miniAppConnector } from "@farcasterorg/miniapp-wagmi-connector";
 import { http, createConfig } from "wagmi";
 import { base, mainnet } from "wagmi/chains";
 

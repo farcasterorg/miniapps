@@ -3,12 +3,12 @@
  */
 
 const packageMappings = {
-  '@farcaster/frame-sdk': '@farcaster/miniapp-sdk',
-  '@farcaster/frame-core': '@farcaster/miniapp-core',
-  '@farcaster/frame-host': '@farcaster/miniapp-host',
-  '@farcaster/frame-node': '@farcaster/miniapp-node',
-  '@farcaster/frame-wagmi-connector': '@farcaster/miniapp-wagmi-connector',
-  '@farcaster/frame-host-react-native': '@farcaster/miniapp-host-react-native',
+  '@farcaster/frame-sdk': '@farcasterorg/miniapp-sdk',
+  '@farcaster/frame-core': '@farcasterorg/miniapp-core',
+  '@farcaster/frame-host': '@farcasterorg/miniapp-host',
+  '@farcaster/frame-node': '@farcasterorg/miniapp-node',
+  '@farcaster/frame-wagmi-connector': '@farcasterorg/miniapp-wagmi-connector',
+  '@farcaster/frame-host-react-native': '@farcasterorg/miniapp-host-react-native',
 };
 
 export default function transformer(fileInfo, api) {

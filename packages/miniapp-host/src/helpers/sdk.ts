@@ -3,19 +3,19 @@ import type {
   SolanaRequestFn,
   SolanaWireRequestFn,
   WireMiniAppHost,
-} from '@farcaster/miniapp-core'
-import { AddMiniApp, SignIn, SignManifest } from '@farcaster/miniapp-core'
+} from '@farcasterorg/miniapp-core'
+import { AddMiniApp, SignIn, SignManifest } from '@farcasterorg/miniapp-core'
 
 /**
  * The `wrapSolanaProviderRequest` helper reconstructs `@solana/web3.js`
  * transaction instances from their wire representation, so it depends on
  * `@solana/web3.js` runtime values and lives in the
- * `@farcaster/miniapp-core/solana` subpath.
+ * `@farcasterorg/miniapp-core/solana` subpath.
  *
- * To keep `@solana/web3.js` out of the default `@farcaster/miniapp-host`
+ * To keep `@solana/web3.js` out of the default `@farcasterorg/miniapp-host`
  * module graph (so that hosts that do not support Solana bundle without it),
  * that helper is registered via a side-effecting import of
- * `@farcaster/miniapp-host/solana` rather than being imported statically.
+ * `@farcasterorg/miniapp-host/solana` rather than being imported statically.
  */
 type WrapSolanaProviderRequest = (
   request: SolanaRequestFn,
@@ -25,7 +25,7 @@ let registeredWrap: WrapSolanaProviderRequest | undefined
 
 /**
  * Registers the `@solana/web3.js`-backed wrap helper used by
- * {@link wrapHandlers}. Called by the `@farcaster/miniapp-host/solana`
+ * {@link wrapHandlers}. Called by the `@farcasterorg/miniapp-host/solana`
  * entrypoint; consumers should not call this directly.
  */
 export function registerSolanaProviderWrap(
@@ -38,7 +38,7 @@ export function registerSolanaProviderWrap(
  * Produce the wire-format Solana request fn for a host that provides a rich
  * (`@solana/web3.js`-typed) `solanaProviderRequest`. The wrapping is deferred
  * to the first Solana request; if Solana support was not enabled (via
- * `import '@farcaster/miniapp-host/solana'`), the call throws a descriptive
+ * `import '@farcasterorg/miniapp-host/solana'`), the call throws a descriptive
  * error instead of silently failing.
  */
 function toWireSolanaProviderRequest(
@@ -49,7 +49,7 @@ function toWireSolanaProviderRequest(
     if (!wrapped) {
       if (!registeredWrap) {
         throw new Error(
-          "Solana support is not enabled. Install '@solana/web3.js' and add `import '@farcaster/miniapp-host/solana'` to your host entry to expose a Solana provider.",
+          "Solana support is not enabled. Install '@solana/web3.js' and add `import '@farcasterorg/miniapp-host/solana'` to your host entry to expose a Solana provider.",
         )
       }
       wrapped = registeredWrap(request)

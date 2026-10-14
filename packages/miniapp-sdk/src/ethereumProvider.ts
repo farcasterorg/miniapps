@@ -2,7 +2,7 @@ import type {
   EthProviderWireEvent,
   MiniAppClientEvent,
   MiniAppHostCapability,
-} from '@farcaster/miniapp-core'
+} from '@farcasterorg/miniapp-core'
 import type {
   AnnounceProviderParameters,
   AnnounceProviderReturnType,

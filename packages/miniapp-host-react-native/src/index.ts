@@ -1,3 +1,3 @@
-export * from '@farcaster/miniapp-host'
+export * from '@farcasterorg/miniapp-host'
 export * from './webview.ts'
 export * from './webviewAdapter.ts'

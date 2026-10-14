@@ -1,0 +1,127 @@
+---
+title: Protocol Auth
+description: Quick Auth without an auth server
+---
+
+# Protocol Auth
+
+`sdk.protocolAuth` is [Quick Auth](/docs/sdk/quick-auth) without an auth
+server. It has the same shape — `token`, `getToken`, `fetch` — but the token is
+a short-lived [Sign-In with Ethereum](https://eips.ethereum.org/EIPS/eip-4361)
+message naming the user's FID, signed by a wallet linked to that FID. Your
+server verifies it against Farcaster protocol state with
+`@farcasterorg/quick-auth`; no one else is involved.
+
+`sdk.quickAuth` is unchanged, and `@farcasterorg/quick-auth` verifies its JWTs
+too, so you can use either or both.
+
+
+## Get a token
+
+Inside a Mini App, the host's wallet signs and the FID comes from the Mini App
+context:
+
+```ts
+import { sdk } from '@farcasterorg/miniapp-sdk'
+
+const { token } = await sdk.protocolAuth.getToken()
+```
+
+Outside a Mini App, pass the wallet to sign with and the FID to sign in as:
+
+```ts
+const { token } = await sdk.protocolAuth.getToken({ provider, fid })
+```
+
+Or let it add the header for you: `await sdk.protocolAuth.fetch(url)`.
+
+### Parameters
+
+- **`force`** (`boolean`): sign a new token even if one is in memory and not
+  expired.
+- **`provider`** ([EIP-1193](https://eips.ethereum.org/EIPS/eip-1193)): the
+  wallet to sign with. Defaults to the host's wallet inside a Mini App;
+  required outside one.
+- **`fid`** (`number`): the FID to authenticate as. Defaults to the Mini App's
+  user; required outside one. This is only a claim — the server checks the
+  signing address is linked to it.
+- **`expiresIn`** (`number`): lifetime in seconds. Default `3600`, which is
+  also the longest the server accepts by default.
+
+The token is an opaque bearer string (`hqa1.…`). Send it as
+`Authorization: Bearer <token>`.
+
+
+## Verify a token
+
+```
+npm install @farcasterorg/quick-auth
+```
+
+```ts
+import { createClient, HubError, InvalidTokenError } from '@farcasterorg/quick-auth'
+
+const client = createClient()
+
+try {
+  const { sub: fid, address, method } = await client.verifyToken({
+    token,
+    domain: 'example.com',
+  })
+} catch (e) {
+  if (e instanceof InvalidTokenError) // answer 401
+  if (e instanceof HubError) // answer 503: couldn't check; let the client retry
+}
+```
+
+`verifyToken` (alias `verifyJwt`) accepts protocol tokens and classic Quick
+Auth JWTs alike; `method` says which (`quickAuthServer` for a JWT). `address`
+is set for protocol tokens only: Quick Auth JWTs don't carry one. Pass
+`acceptQuickAuthJwt: false` to accept protocol tokens only.
+
+For a protocol token it checks the domain, lifetime and signature, then asks a
+hub whether the signing address is linked to the FID, caching the answer
+briefly (`linkCacheTtl`, default 60s).
+
+### Replacing `@farcaster/quick-auth`
+
+`@farcasterorg/quick-auth` exports everything
+[`@farcaster/quick-auth`](/docs/sdk/quick-auth) does, under the same names and
+entry points (`.`, `/light`, `/decodeJwt`), so swapping the import is enough:
+
+```ts
+import { createClient, Errors } from '@farcasterorg/quick-auth'
+
+const client = createClient({ origin: 'https://auth.farcaster.xyz' })
+
+try {
+  const { sub: fid } = await client.verifyJwt({ token, domain: 'example.com' })
+} catch (e) {
+  if (e instanceof Errors.InvalidTokenError) // answer 401
+  if (e instanceof Errors.HubError) // answer 503
+}
+```
+
+`generateNonce`, `verifySiwf`, `createLightClient` and `decodeJwt` are
+`@farcaster/quick-auth`'s own, and `Errors.InvalidTokenError` subclasses its
+class, so existing `instanceof` checks keep working. Two things change:
+`verifyJwt` also accepts protocol tokens, and every rejected JWT is an
+`InvalidTokenError` (`@farcaster/quick-auth` lets jose's signature and key
+errors through).
+
+
+## Which addresses can sign
+
+- **The FID's custody address.**
+- **An auth address** the custody registered for signing in (KeyRegistry key
+  type 2).
+- **A verified address**, but only if the verification was added by a signer
+  that a trusted app requested (`trustedAppFids`, default the Farcaster app,
+  9152) or that the user requested for their own FID. Any active signer can add
+  a verification, so without this rule any app holding a signer could verify
+  its own wallet on a user's FID and sign in as them.
+
+Narrow this with `methods`, e.g. `createClient({ methods: ['custody', 'authAddress'] })`.
+
+Smart-contract wallets (EIP-1271/6492) need `verifySignature`, for example with
+viem: `createClient({ verifySignature: (p) => publicClient.verifyMessage(p) })`.

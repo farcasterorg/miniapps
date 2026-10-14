@@ -1,13 +1,13 @@
 // Deprecation warning
 if (typeof console !== 'undefined' && console.warn) {
   console.warn(
-    '[DEPRECATION WARNING] @farcaster/frame-core is deprecated. Please migrate to @farcaster/miniapp-core. ' +
+    '[DEPRECATION WARNING] @farcasterorg/frame-core is deprecated. Please migrate to @farcasterorg/miniapp-core. ' +
       'See https://github.com/farcasterxyz/frames/blob/main/MIGRATION.md for migration guide.',
   )
 }
 
 // Re-export everything from miniapp-core
-export * from '@farcaster/miniapp-core'
+export * from '@farcasterorg/miniapp-core'
 
 // Import types for aliasing
 import {
@@ -22,7 +22,7 @@ import {
   miniAppNameSchema as _miniAppNameSchema,
   safeParseMiniAppEmbed as _safeParseMiniAppEmbed,
   type WireMiniAppHost as _WireMiniAppHost,
-} from '@farcaster/miniapp-core'
+} from '@farcasterorg/miniapp-core'
 
 // Backward compatibility type aliases
 export type FrameHost = _MiniAppHost

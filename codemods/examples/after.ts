@@ -1,6 +1,6 @@
 // After migration - using MiniApps
-import { miniAppHost } from '@farcaster/miniapp-sdk';
-import type { MiniAppContext } from '@farcaster/miniapp-core';
+import { miniAppHost } from '@farcasterorg/miniapp-sdk';
+import type { MiniAppContext } from '@farcasterorg/miniapp-core';
 
 async function initializeApp() {
   // Get miniapp context

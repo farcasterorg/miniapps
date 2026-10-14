@@ -1,5 +1,5 @@
 {
-  "name": "@farcaster/miniapp-codemods",
+  "name": "@farcasterorg/miniapp-codemods",
   "version": "1.0.0",
   "description": "Codemods to help migrate from Farcaster Frames to MiniApps",
   "type": "module",

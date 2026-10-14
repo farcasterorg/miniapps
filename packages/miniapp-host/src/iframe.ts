@@ -1,4 +1,4 @@
-import type { MiniAppHost } from '@farcaster/miniapp-core'
+import type { MiniAppHost } from '@farcasterorg/miniapp-core'
 import type * as OxProvider from 'ox/Provider'
 import * as Comlink from './comlink/index.ts'
 import { exposeToEndpoint } from './helpers/endpoint.ts'

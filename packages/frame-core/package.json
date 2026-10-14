@@ -1,5 +1,5 @@
 {
-  "name": "@farcaster/frame-core",
+  "name": "@farcasterorg/frame-core",
   "version": "0.5.0",
   "license": "MIT",
   "repository": {
@@ -23,13 +23,13 @@
     "src"
   ],
   "devDependencies": {
-    "@farcaster/tsconfig": "workspace:*",
+    "@farcasterorg/tsconfig": "workspace:*",
     "@vitest/coverage-v8": "^2.1.8",
     "typescript": "^5.8.3",
     "vitest": "^2.1.9"
   },
   "dependencies": {
-    "@farcaster/miniapp-core": "workspace:*",
+    "@farcasterorg/miniapp-core": "workspace:*",
     "@solana/web3.js": "^1.98.2",
     "ox": "^0.14.0",
     "zod": "^4.0.0"

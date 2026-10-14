@@ -1,5 +1,8 @@
-import type { MiniAppHost } from '@farcaster/miniapp-host'
-import { exposeToEndpoint, useExposeToEndpoint } from '@farcaster/miniapp-host'
+import type { MiniAppHost } from '@farcasterorg/miniapp-host'
+import {
+  exposeToEndpoint,
+  useExposeToEndpoint,
+} from '@farcasterorg/miniapp-host'
 import type * as OxProvider from 'ox/Provider'
 import {
   type RefObject,

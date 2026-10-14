@@ -1,0 +1,301 @@
+import * as AbiParameters from 'ox/AbiParameters'
+import type * as Address from 'ox/Address'
+import * as Base64 from 'ox/Base64'
+import type * as Hex from 'ox/Hex'
+import { z } from 'zod'
+import { HubError } from './errors.ts'
+
+export type HubOptions = {
+  /** Base URL of a hub's HTTP API, e.g. `https://haatz.quilibrium.com`. */
+  hubUrl: string
+  fetch?: typeof fetch
+  requestInit?: RequestInit
+  /** Per-request timeout in milliseconds. Default 30000. */
+  timeoutMs?: number
+}
+
+const signedKeyRequestAbi = [
+  {
+    components: [
+      { name: 'requestFid', type: 'uint256' },
+      { name: 'requestSigner', type: 'address' },
+      { name: 'signature', type: 'bytes' },
+      { name: 'deadline', type: 'uint256' },
+    ],
+    name: 'SignedKeyRequest',
+    type: 'tuple',
+  },
+] as const
+
+/**
+ * `requestFid` — the app that asked for the key — from an on-chain
+ * signer event's SignedKeyRequest metadata. The KeyRegistry's validator
+ * checked it was signed by that app's custody when the key was added.
+ */
+export function requestFidFromMetadata(
+  metadataBase64: string,
+  metadataType: number,
+): number | undefined {
+  if (metadataType !== 1 || !metadataBase64) return undefined
+  try {
+    const [decoded] = AbiParameters.decode(
+      signedKeyRequestAbi,
+      Base64.toBytes(metadataBase64),
+    )
+    const fid = decoded.requestFid
+    return fid <= BigInt(Number.MAX_SAFE_INTEGER) ? Number(fid) : undefined
+  } catch {
+    return undefined
+  }
+}
+
+const addressTypeSchema = z.object({
+  is_custody: z.boolean().default(false),
+  is_verified: z.boolean().default(false),
+})
+
+const messagesPageSchema = z.object({
+  messages: z.array(z.unknown()).default([]),
+  nextPageToken: z.string().optional(),
+})
+
+const verificationMessageSchema = z.object({
+  data: z.object({
+    verificationAddAddressBody: z.object({
+      address: z.string(),
+      protocol: z.string().optional(),
+    }),
+  }),
+  signer: z.string(),
+})
+
+const signerSchema = z.object({
+  signer: z.object({
+    requestFid: z.number().optional(),
+    onChainEvent: z
+      .object({
+        signerEventBody: z
+          .object({
+            metadata: z.string().default(''),
+            metadataType: z.number().default(0),
+          })
+          .optional(),
+      })
+      .optional(),
+  }),
+})
+
+const signerEventsSchema = z.object({
+  events: z.array(z.unknown()).default([]),
+})
+
+const signerEventSchema = z.object({
+  blockNumber: z.number(),
+  logIndex: z.number().default(0),
+  signerEventBody: z.object({
+    key: z.string(),
+    keyType: z.number(),
+    eventType: z.string(),
+  }),
+})
+
+const bulkUsersSchema = z.object({
+  users: z
+    .array(
+      z.object({
+        fid: z.number(),
+        username: z.string().nullish(),
+        display_name: z.string().nullish(),
+        pfp_url: z.string().nullish(),
+      }),
+    )
+    .default([]),
+})
+
+/** `verificationsByFid` pages to scan before giving up. */
+const MAX_VERIFICATION_PAGES = 10
+
+export type HubUser = {
+  fid: number
+  username?: string
+  displayName?: string
+  pfpUrl?: string
+}
+
+/**
+ * The hub reads protocol Quick Auth needs. Every method returns
+ * `undefined` for "not found" (hubs answer that with a 400) and throws
+ * {@link HubError} for anything else that isn't a success.
+ */
+export type Hub = ReturnType<typeof createHub>
+
+export function createHub(options: HubOptions) {
+  const doFetch = options.fetch ?? fetch
+  const timeoutMs = options.timeoutMs ?? 30_000
+
+  async function get<T>(
+    path: string,
+    params: Record<string, string>,
+    schema: z.ZodType<T>,
+  ): Promise<T | undefined> {
+    const url = new URL(path, options.hubUrl)
+    for (const [k, v] of Object.entries(params)) url.searchParams.set(k, v)
+    let response: Response
+    try {
+      response = await doFetch(url, {
+        ...options.requestInit,
+        signal: AbortSignal.timeout(timeoutMs),
+      })
+    } catch (e) {
+      throw new HubError(`${path}: request failed`, { cause: e })
+    }
+    if (response.status === 400 || response.status === 404) return undefined
+    if (!response.ok) {
+      throw new HubError(`${path}: HTTP ${response.status}`)
+    }
+    let json: unknown
+    try {
+      json = await response.json()
+    } catch (e) {
+      throw new HubError(`${path}: invalid JSON`, { cause: e })
+    }
+    const parsed = schema.safeParse(json)
+    if (!parsed.success) {
+      throw new HubError(`${path}: unexpected response`, {
+        cause: parsed.error,
+      })
+    }
+    return parsed.data
+  }
+
+  return {
+    /** Current custody and live verification status of `address` for `fid`. */
+    async addressType(fid: number, address: Address.Address) {
+      return get(
+        '/v1/fidAddressType',
+        { fid: String(fid), address },
+        addressTypeSchema,
+      )
+    },
+
+    /** Key of the signer that added the live ETH verification of `address`. */
+    async verificationSigner(
+      fid: number,
+      address: Address.Address,
+    ): Promise<Hex.Hex | undefined> {
+      const target = address.toLowerCase()
+      let pageToken: string | undefined
+      for (let page = 0; page < MAX_VERIFICATION_PAGES; page++) {
+        const params: Record<string, string> = {
+          fid: String(fid),
+          pageSize: '100',
+        }
+        if (pageToken) params.pageToken = pageToken
+        const result = await get(
+          '/v1/verificationsByFid',
+          params,
+          messagesPageSchema,
+        )
+        if (!result) return undefined
+        for (const raw of result.messages) {
+          // Skip anything that isn't a well-formed ETH verification
+          // rather than failing the whole page on it.
+          const m = verificationMessageSchema.safeParse(raw)
+          if (!m.success) continue
+          const body = m.data.data.verificationAddAddressBody
+          const isEth =
+            (body.protocol ?? 'PROTOCOL_ETHEREUM') === 'PROTOCOL_ETHEREUM'
+          if (isEth && body.address.toLowerCase() === target) {
+            return m.data.signer as Hex.Hex
+          }
+        }
+        if (!result.nextPageToken) return undefined
+        pageToken = result.nextPageToken
+      }
+      return undefined
+    },
+
+    /**
+     * `requestFid` of an *active* signer, from the gasless key record or
+     * the on-chain event's metadata. `undefined` if the signer isn't
+     * active or can't be attributed.
+     */
+    async signerRequestFid(
+      fid: number,
+      signer: Hex.Hex,
+    ): Promise<number | undefined> {
+      const result = await get(
+        '/v1/signer',
+        { fid: String(fid), signer },
+        signerSchema,
+      )
+      if (!result) return undefined
+      if (result.signer.requestFid !== undefined) {
+        return result.signer.requestFid
+      }
+      const body = result.signer.onChainEvent?.signerEventBody
+      return body
+        ? requestFidFromMetadata(body.metadata, body.metadataType)
+        : undefined
+    },
+
+    /**
+     * Whether `address` is a currently registered auth address
+     * (KeyRegistry keyType 2) for `fid`. Worked out from the signer event
+     * history: the latest event for the key decides. Auth-address keys
+     * are stored left-padded to 32 bytes.
+     */
+    async isAuthAddress(
+      fid: number,
+      address: Address.Address,
+    ): Promise<boolean> {
+      const result = await get(
+        '/v1/onChainEventsByFid',
+        { fid: String(fid), event_type: 'EVENT_TYPE_SIGNER' },
+        signerEventsSchema,
+      )
+      if (!result) return false
+      const target = address.toLowerCase().slice(2)
+      let latest: z.infer<typeof signerEventSchema> | undefined
+      for (const raw of result.events) {
+        const e = signerEventSchema.safeParse(raw)
+        if (!e.success || e.data.signerEventBody.keyType !== 2) continue
+        if (authKeyAddress(e.data.signerEventBody.key) !== target) continue
+        const later =
+          !latest ||
+          e.data.blockNumber > latest.blockNumber ||
+          (e.data.blockNumber === latest.blockNumber &&
+            e.data.logIndex > latest.logIndex)
+        if (later) latest = e.data
+      }
+      return latest?.signerEventBody.eventType === 'SIGNER_EVENT_TYPE_ADD'
+    },
+
+    /**
+     * FIDs a hub's account index associates with `address`. Discovery
+     * only — these are candidates to check, not links. Needs the
+     * `/v2/farcaster/user/bulk-by-address` API (haatz, Neynar).
+     */
+    async usersByAddress(address: Address.Address): Promise<HubUser[]> {
+      const result = await get(
+        '/v2/farcaster/user/bulk-by-address',
+        { addresses: address.toLowerCase() },
+        bulkUsersSchema,
+      )
+      return (result?.users ?? []).map((u) => ({
+        fid: u.fid,
+        username: u.username || undefined,
+        displayName: u.display_name || undefined,
+        pfpUrl: u.pfp_url || undefined,
+      }))
+    },
+  }
+}
+
+/** Lowercase 40-hex-char address from a 20- or zero-padded 32-byte key. */
+function authKeyAddress(key: string): string | undefined {
+  const hex = key.toLowerCase().replace(/^0x/, '')
+  if (hex.length === 40) return hex
+  if (hex.length === 64 && /^0{24}/.test(hex)) return hex.slice(24)
+  return undefined
+}

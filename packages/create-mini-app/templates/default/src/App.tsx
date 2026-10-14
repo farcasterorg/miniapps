@@ -1,4 +1,4 @@
-import { sdk } from "@farcaster/miniapp-sdk";
+import { sdk } from "@farcasterorg/miniapp-sdk";
 import { useEffect } from "react";
 import { useAccount, useConnect, useSignMessage } from "wagmi";
 
